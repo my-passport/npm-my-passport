@@ -7,7 +7,7 @@ info:
 tags:
   - name: news
     description: Operation about news
-  - name: cases
+  - name: passport-cases
     description: Operation about cases
 schemes:
   - https
@@ -183,10 +183,10 @@ paths:
           description: The request you made is not acceptable
         "422":
           description: Invalid parameter value
-  "/cases/{id}":
+  "/passport/cases/{id}":
     get:
       tags:
-        - cases
+        - passport-cases
       summary: Get case
       description: Get case
       operationId: getCase
