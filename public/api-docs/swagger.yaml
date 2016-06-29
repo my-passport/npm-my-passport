@@ -1,0 +1,390 @@
+swagger: "2.0"
+host: my-passport.tech
+basePath: /api
+info:
+  version: 1.0.0
+  title: my-passport
+tags:
+  - name: news
+    description: Operation about news
+  - name: cases
+    description: Operation about cases
+schemes:
+  - https
+produces:
+  - application/vnd.my-passport.v1+json
+  - application/vnd.my-passport.v1+xml
+security:
+  - oauth2token:
+    - public
+paths:
+  /news:
+    get:
+      tags:
+        - news
+      summary: Find news
+      description: Get news collection
+      operationId: getNewsCollection
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - passport:news:get
+      parameters:
+        - name: limit
+          description: limit
+          required: false
+          type: integer
+          in: query
+          default: 100
+        - name: offset
+          description: offset
+          required: false
+          type: integer
+          in: query
+        - name: country
+          description: country
+          required: false
+          type: string
+          in: query
+        - name: sort
+          description: sort
+          required: false
+          type: string
+          in: query
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/NewsCollectionResponse"
+    post:
+      tags:
+        - news
+      summary: Create news
+      description: Create news
+      operationId: createNews
+      consumes:
+        - application/vnd.cases.v1+json
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - passport:news:create
+      parameters:
+        - in: body
+          name: newsRequest
+          description: News object
+          required: true
+          schema:
+            $ref: "#/definitions/NewsRequest"
+      responses:
+        "201":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/NewsResponse"
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "406":
+          description: The request you made is not acceptable
+        "422":
+          description: Invalid parameter value
+  "/news/{news.id}":
+    get:
+      tags:
+        - news
+      summary: Get news
+      description: Get news
+      operationId: getNews
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - passport:news:get
+      parameters:
+        - name: news.id
+          in: path
+          description: News id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/NewsResponse"
+        "404":
+          description: News not found
+    delete:
+      tags:
+        - news
+      summary: Delete news
+      description: Delete news
+      operationId: deleteNews
+      security:
+        - oauth2token:
+          - passport:news:delete
+      parameters:
+        - name: news.id
+          in: path
+          description: News id
+          required: true
+          type: string
+      responses:
+        "204":
+          description: successful operation
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: News not found
+    put:
+      tags:
+        - news
+      summary: Update news
+      description: Update news
+      operationId: updateNews
+      consumes:
+        - application/vnd.cases.v1+json
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - passport:news:update
+      parameters:
+        - name: news.id
+          in: path
+          description: News id
+          required: true
+          type: string
+        - in: body
+          name: newsRequest
+          description: News object
+          required: true
+          schema:
+            $ref: "#/definitions/NewsRequest"
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/NewsResponse"
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: News not found
+        "406":
+          description: The request you made is not acceptable
+        "422":
+          description: Invalid parameter value
+  "/cases/{id}":
+    get:
+      tags:
+        - cases
+      summary: Get case
+      description: Get case
+      operationId: getCase
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - cases:get
+      parameters:
+        - name: id
+          in: path
+          description: Case id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/CaseResponse"
+        "404":
+          description: Case not found
+securityDefinitions:
+  oauth2token:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://my-passport.io/oauth/authorization
+    scopes:
+      public: public API scope
+      passport:news:update: permission to update news
+      passport:news:delete: permission to delete news
+      passport:news:get: permission to get news
+      passport:news:create: permission to create news
+      cases:get: permission to get cases
+definitions:
+  AuthorResponse:
+    properties:
+      name:
+        type: string
+        description: name
+      organization:
+        type: string
+        description: organization
+    description: Author
+    required:
+      - name
+      - organization
+  AuthorRequest:
+    properties:
+      name:
+        type: string
+        description: name
+      organization:
+        type: string
+        description: organization
+    description: Author
+    required:
+      - name
+      - organization
+  MainImageResponse:
+    properties:
+      small:
+        type: string
+        description: Image small url
+      medium:
+        type: string
+        description: Image medium url
+      large:
+        type: string
+        description: Image large url
+    description: Case response
+  ImageRequest:
+    properties:
+      url:
+        type: string
+        description: Image url
+      content:
+        type: string
+        description: Image content
+      order:
+        type: integer
+        description: Image order
+    description: Case response
+    required:
+      - order
+  CaseResponse:
+    properties:
+      id:
+        type: string
+        description: Case id
+      status:
+        type: string
+        description: Status of case
+        enum:
+          - CREATED
+          - PENDING
+          - READY
+    description: Case response
+    required:
+      - id
+      - status
+  NewsResponse:
+    properties:
+      id:
+        type: string
+        description: News id
+      name:
+        type: string
+        description: News name
+      description:
+        type: string
+        description: News description
+      status:
+        type: string
+        description: Status of news
+        default: CREATED
+        enum:
+          - CREATED
+          - PUBLISHED
+          - CANCELED
+      mainImage:
+        $ref: "#/definitions/MainImageResponse"
+        description: Main image
+      authors:
+        type: array
+        items:
+          $ref: "#/definitions/AuthorResponse"
+        description: Product authors
+      tags:
+        type: array
+        items:
+          type: string
+        description: News tags
+      publishedAt:
+        type: string
+        description: News publishedAt
+      createdAt:
+        type: string
+        description: News createdAt
+      updatedAt:
+        type: string
+        description: News updatedAt
+    description: News response
+    required:
+      - id
+      - name
+      - description
+      - status
+      - mainImage
+      - tags
+      - createdAt
+      - updatedAt
+  NewsRequest:
+    properties:
+      name:
+        type: string
+        description: News name
+      description:
+        type: string
+        description: News description
+      status:
+        type: string
+        description: Status of news
+        default: CREATED
+        enum:
+          - CREATED
+          - PUBLISHED
+          - CANCELED
+      images:
+        type: array
+        items:
+          $ref: "#/definitions/ImageRequest"
+        description: Images
+      authors:
+        type: array
+        items:
+          $ref: "#/definitions/AuthorRequest"
+        description: Product authors
+      tags:
+        type: array
+        items:
+          type: string
+        description: News tags
+    description: News request
+    required:
+      - name
+      - description
+      - images
+      - tags
+  NewsCollectionResponse:
+    properties:
+      total:
+        type: integer
+        description: Total news collection
+      news:
+        type: array
+        items:
+          $ref: "#/definitions/NewsResponse"
+    description: News collection
+    required:
+      - total
+      - news
