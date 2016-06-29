@@ -44,7 +44,7 @@ npm test
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 Zenedith
+Copyright (c) 2016 Zenedith
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -64,4 +64,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[![Analytics](https://ga-beacon.appspot.com/UA-76453794-1/festivals-tech/npm-festivals/readme?pixel)](https://github.com/festivals-tech/npm-festivals)
+[![Analytics](https://ga-beacon.appspot.com/UA-76453794-1/my-passport/npm-my-passport/readme?pixel)](https://github.com/my-passport/npm-my-passport)
