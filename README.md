@@ -1,4 +1,12 @@
 # my-passport
+[![npm version](https://badge.fury.io/js/my-passport.svg)](https://badge.fury.io/js/my-passport)
+[![bitHound Score](https://www.bithound.io/github/my-passport/npm-my-passport/badges/score.svg)](https://www.bithound.io/github/my-passport/npm-my-passport)
+[![Coverage Status](https://coveralls.io/repos/my-passport/npm-my-passport/badge.svg?branch=master&service=github)](https://coveralls.io/github/my-passport/npm-my-passport?branch=master)
+[![Build Status](https://travis-ci.org/my-passport/npm-my-passport.svg)](https://travis-ci.org/my-passport/npm-my-passport)
+[![Dependency Status](https://david-dm.org/my-passport/npm-my-passport.svg)](https://david-dm.org/my-passport/npm-my-passport)
+[![devDependency Status](https://david-dm.org/my-passport/npm-my-passport/dev-status.svg)](https://david-dm.org/my-passport/npm-my-passport#info=devDependencies)
+
+[![NPM](https://nodei.co/npm/npm-my-passport.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/npm-my-passport/)
 
 My passport service
 
@@ -64,4 +72,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[![Analytics](https://ga-beacon.appspot.com/UA-76453794-1/my-passport/npm-my-passport/readme?pixel)](https://github.com/my-passport/npm-my-passport)
+[![Analytics](https://ga-beacon.appspot.com/UA-80172503-1/my-passport/npm-my-passport/readme?pixel)](https://github.com/my-passport/npm-my-passport)
