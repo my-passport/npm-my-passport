@@ -8,7 +8,7 @@
     "async": "1.5.2",
     "config": "1.21.0",
     "keen-js": "3.4.1",
-    "my-passport-client": "0.1.3",
+    "my-passport-client": "0.1.4",
     "my-restify-api": "0.6.3",
     "newrelic": "1.28.1",
     "winston": "2.2.0",
