@@ -7,6 +7,7 @@
     "assert-plus": "1.0.0",
     "async": "1.5.2",
     "config": "1.21.0",
+    "fcm-node": "1.0.7",
     "firebase": "3.1.0",
     "keen-js": "3.4.1",
     "my-passport-client": "0.1.4",
