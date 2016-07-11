@@ -9,6 +9,8 @@ tags:
     description: Operation about news
   - name: passport-cases
     description: Operation about cases
+  - name: passport-subscriptions
+    description: Operation about subscriptions
 schemes:
   - https
 produces:
@@ -194,7 +196,7 @@ paths:
         - application/vnd.cases.v1+json
       security:
         - oauth2token:
-          - cases:get
+          - passport:cases:get
       parameters:
         - name: id
           in: path
@@ -208,6 +210,47 @@ paths:
             $ref: "#/definitions/CaseResponse"
         "404":
           description: Case not found
+  "/passport/cases/{id}/subscriptions":
+    post:
+      tags:
+        - passport-subscriptions
+      summary: Create passport subscription
+      description: Create passport subscription
+      operationId: createPassportSubscription
+      consumes:
+        - application/vnd.cases.v1+json
+      produces:
+        - application/vnd.cases.v1+json
+      security:
+        - oauth2token:
+          - passport:cases:get
+      parameters:
+        - name: id
+          in: path
+          description: Case id
+          required: true
+          type: string
+        - in: body
+          name: passportSubscriptionRequest
+          description: Passport subscription request
+          required: true
+          schema:
+            $ref: "#/definitions/PassportSubscriptionRequest"
+      responses:
+        "201":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/PassportSubscriptionResponse"
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "406":
+          description: The request you made is not acceptable
+        "422":
+          description: Invalid parameter value
 securityDefinitions:
   oauth2token:
     type: oauth2
@@ -219,7 +262,7 @@ securityDefinitions:
       passport:news:delete: permission to delete news
       passport:news:get: permission to get news
       passport:news:create: permission to create news
-      cases:get: permission to get cases
+      passport:cases:get: permission to get cases
 definitions:
   AuthorResponse:
     properties:
@@ -256,7 +299,7 @@ definitions:
       large:
         type: string
         description: Image large url
-    description: Case response
+    description: Main image response
   ImageRequest:
     properties:
       url:
@@ -308,7 +351,6 @@ definitions:
           - CANCELED
       mainImage:
         $ref: "#/definitions/MainImageResponse"
-        description: Main image
       authors:
         type: array
         items:
@@ -388,3 +430,19 @@ definitions:
     required:
       - total
       - news
+  PassportSubscriptionRequest:
+    properties:
+      token:
+        type: string
+        description: Push device token
+    description: Passport subscription request
+    required:
+      - token
+  PassportSubscriptionResponse:
+    properties:
+      subscribed:
+        type: boolean
+        description: Subscription status
+    description: Passport subscription response
+    required:
+      - subscribed
