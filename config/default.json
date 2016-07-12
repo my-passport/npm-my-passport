@@ -3,6 +3,12 @@
     "license_key": "",
     "logging": "info"
   },
+  "fcm": {
+    "serverKey": ""
+  },
+  "redis": {
+    "url": "redis://"
+  },
   "main-request": {
     "url": "https://",
     "timeout": 5000,
