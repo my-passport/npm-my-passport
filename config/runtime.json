@@ -7,6 +7,12 @@
     "projectId": "57743fd63831443bad3ecde3",
     "writeKey": "53db6df9e78118a1b03174e6f859404cddeb6cdb0c064b52197b0ca7b771eaa11681fceaa9b4689b6799494572548a096b4f6064a11528d533c40c0e52fb82f5ef6289453e6eb36324acc61d62b2872e76c077ad2b0d9b2ecfe053c1b302782c"
   },
+  "fcm": {
+    "serverKey": "AIzaSyAbN4xV_LexWnMUzoynQJ8Ci-BDgxn-6WA"
+  },
+  "redis": {
+    "url": "redis://h:palqc0e24oj8iid08s7agq0in6q@ec2-54-246-90-12.eu-west-1.compute.amazonaws.com:24789"
+  },
   "loggly": {
     "level": "info",
     "subdomain": "zenedith",
