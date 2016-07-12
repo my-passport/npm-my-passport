@@ -4,5 +4,5 @@ node_modules/
 # other ignored directories
 coverage/
 test/
-functionalTest
+functional-test
 public
