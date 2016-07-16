@@ -11,7 +11,7 @@
     "fcm-push-notif": "1.1.1",
     "firebase": "3.2.0",
     "keen-js": "3.4.1",
-    "my-passport-client": "0.1.4",
+    "my-passport-client": "0.2.0",
     "my-passport-model": "0.1.4",
     "my-restify-api": "0.6.3",
     "newrelic": "1.28.3",
