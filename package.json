@@ -14,7 +14,7 @@
     "my-passport-client": "0.2.0",
     "my-passport-model": "0.1.4",
     "my-restify-api": "0.6.3",
-    "newrelic": "1.37.0",
+    "newrelic": "1.37.2",
     "redis": "2.6.5",
     "winston": "2.3.1",
     "winston-loggly": "1.3.1"
