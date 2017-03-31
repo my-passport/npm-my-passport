@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@types/jsonwebtoken@^7.1.33":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz#0fed32c8501da80ac9839d2d403a65c83d776ffd"
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*":
+  version "7.0.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
+
 JSON2@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/JSON2/-/JSON2-0.1.0.tgz#8d7493040a63d5835af75f47decb83ab6c8c0790"
@@ -274,12 +284,6 @@ concat-stream@^1.5.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-config@1.21.0:
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/config/-/config-1.21.0.tgz#83719c0263a669e4bc4cc9c9e5818cd996a32cb9"
-  dependencies:
-    json5 "0.4.0"
-
 config@1.25.1:
   version "1.25.1"
   resolved "https://registry.yarnpkg.com/config/-/config-1.25.1.tgz#72ac51cde81e2c77c6b3b66d0130dae527a19c92"
@@ -516,10 +520,11 @@ faye-websocket@0.9.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fcm-node@1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/fcm-node/-/fcm-node-1.0.16.tgz#9c1683014cfe709cb0c983574496a38ab317a905"
+fcm-node@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/fcm-node/-/fcm-node-1.1.1.tgz#0c9f624d237c28cd68c727bd04b3c8da3f127ec4"
   dependencies:
+    firebase-admin "^4.1.3"
     retry "^0.9.0"
 
 fcm-push-notif@1.2.1:
@@ -533,9 +538,17 @@ find-root@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/find-root/-/find-root-0.1.2.tgz#98d2267cff1916ccaf2743b3a0eea81d79d7dcd1"
 
-firebase@3.7.3:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.3.tgz#5f143638a84874095a7faf411589e059ac419ccc"
+firebase-admin@^4.1.3:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-4.1.4.tgz#d36fdccf476ba91db071137f1e5acfdbc8895b02"
+  dependencies:
+    "@types/jsonwebtoken" "^7.1.33"
+    faye-websocket "0.9.3"
+    jsonwebtoken "7.1.9"
+
+firebase@3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.4.tgz#629fd7f84f8ed74f1da815fd792bfa03cd5e2b5c"
   dependencies:
     dom-storage "2.0.2"
     faye-websocket "0.9.3"
@@ -882,9 +895,9 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
-jstoxml@0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-0.2.3.tgz#935249ba206e571fb7c59fe2bc07486fbbd845aa"
+jstoxml@0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-0.2.4.tgz#ff3fb67856883a032953c7ce8ce7486210f48447"
 
 jwa@^1.1.4:
   version "1.1.5"
@@ -903,9 +916,9 @@ jws@^3.1.3:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
-jwt-simple@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/jwt-simple/-/jwt-simple-0.5.0.tgz#06b1d5f5c2e34aca56746166f7e41e932a10e573"
+jwt-simple@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/jwt-simple/-/jwt-simple-0.5.1.tgz#79ea01891b61de6b68e13e67c0b4b5bda937b294"
 
 keen-js@3.4.1:
   version "3.4.1"
@@ -1101,17 +1114,17 @@ my-passport-model@0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/my-passport-model/-/my-passport-model-0.1.4.tgz#2c42445a8a4ebd7e758fd3c0a7ed631d7cf75f1b"
 
-my-restify-api@0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/my-restify-api/-/my-restify-api-0.6.3.tgz#d97804a720887a93a2c94814c5b94cdcb2701de8"
+my-restify-api@0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/my-restify-api/-/my-restify-api-0.6.4.tgz#bcd8b5fbf0a4faa6e59f41f8a9b8fe0538d0d923"
   dependencies:
     assert-plus "1.0.0"
-    config "1.21.0"
-    jstoxml "0.2.3"
-    jwt-simple "0.5.0"
+    config "1.25.1"
+    jstoxml "0.2.4"
+    jwt-simple "0.5.1"
     mime "1.3.4"
-    restify "4.1.1"
-    winston "2.2.0"
+    restify "4.3.0"
+    winston "2.3.1"
     winston-loggly "1.3.1"
 
 nan@^2.0.8, nan@^2.3.3:
@@ -1126,9 +1139,9 @@ negotiator@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-newrelic@1.38.1:
-  version "1.38.1"
-  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-1.38.1.tgz#c3d10f02c9b14f84365f5eb939ae313ff24ff618"
+newrelic@1.38.2:
+  version "1.38.2"
+  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-1.38.2.tgz#c14cda98fc682be7fe770996c65beca88c4b6884"
   dependencies:
     concat-stream "^1.5.0"
     https-proxy-agent "^0.3.5"
@@ -1234,11 +1247,7 @@ qs@2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/qs/-/qs-2.3.3.tgz#e9e85adbe75da0bbe4c8e0476a086290f863b404"
 
-qs@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-3.1.0.tgz#d0e9ae745233a12dc43fb4f3055bba446261153c"
-
-qs@~6.2.0:
+qs@^6.2.1, qs@~6.2.0:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.1.tgz#ce03c5ff0935bc1d9d69a9f14cbd18e568d67625"
 
@@ -1372,9 +1381,9 @@ resolve@1.1.x:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-restify@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/restify/-/restify-4.1.1.tgz#7e9f771f2bb081a0fcc991cc3cb4f094ed965fdb"
+restify@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/restify/-/restify-4.3.0.tgz#03b67960d1d42a6dafcde3bd82fb882173a27678"
   dependencies:
     assert-plus "^0.1.5"
     backoff "^2.4.0"
@@ -1389,7 +1398,7 @@ restify@4.1.1:
     negotiator "^0.6.1"
     node-uuid "^1.4.1"
     once "^1.3.0"
-    qs "^3.1.0"
+    qs "^6.2.1"
     semver "^4.3.3"
     spdy "^3.3.3"
     tunnel-agent "^0.4.0"
