@@ -3,7 +3,7 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-describe('main client test', function () {
+describe('database redis test', function () {
   var clientMock = {
 
     on: function on(event, callback) {
@@ -32,7 +32,7 @@ describe('main client test', function () {
 
     var redisDatabase = new redis.Redis();
     redisDatabase.getSubscriberTokens('caseNumber', function (err, tokens) {
-      expect(tokens, 'tokens').to.be.array;
+      expect(tokens, 'tokens').to.be.an('array');
       expect(err, 'err').to.be.null;
       done();
     });
