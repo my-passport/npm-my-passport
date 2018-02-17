@@ -9,7 +9,7 @@
     "config": "1.29.4",
     "fcm-node": "1.2.1",
     "fcm-push-notif": "1.2.1",
-    "firebase": "4.9.1",
+    "firebase": "4.10.0",
     "keen-js": "4.3.0",
     "my-passport-client": "0.2.0",
     "my-passport-model": "0.1.4",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "chai": "4.1.2",
     "istanbul": "0.4.5",
-    "mocha": "5.0.0",
+    "mocha": "5.0.1",
     "rewire": "3.0.2"
   },
   "scripts": {
